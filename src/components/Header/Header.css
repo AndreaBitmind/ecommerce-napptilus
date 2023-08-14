@@ -2,11 +2,14 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  border: 1px solid white;
+  border-bottom: 20px solid #242424;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
+  color: #1a1a1a;
+  background-color: white;
 }
 
 h1 {
