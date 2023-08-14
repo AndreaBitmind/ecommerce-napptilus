@@ -1,4 +1,4 @@
-import { CartIcon } from "./Icons";
+import { CartIcon } from "../Icons";
 import "./Header.css";
 
 export function Header() {
