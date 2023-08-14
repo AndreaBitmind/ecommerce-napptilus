@@ -7,3 +7,23 @@
 .item-list__productItem {
   list-style: none;
 }
+
+.search-bar {
+  margin: 10px 10px;
+  width: 100%;
+  max-width: 300px;
+  height: 25px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid white;
+  color: black;
+}
+
+.search-bar::placeholder {
+  color: rgb(171, 170, 170);
+}
+.item-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinea los elementos a la derecha */
+}
