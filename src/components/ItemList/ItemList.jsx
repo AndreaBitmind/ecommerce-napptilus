@@ -1,5 +1,6 @@
 import { useAPI } from "../../Hooks/useAPI";
 import { ProductItem } from "../ProductItem/ProductItem";
+import "./ItemList.css";
 
 export function ItemList() {
   const { data } = useAPI("https://itx-frontend-test.onrender.com/api/product");
