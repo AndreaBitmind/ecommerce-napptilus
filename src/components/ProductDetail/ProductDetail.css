@@ -1,0 +1,18 @@
+p {
+  margin: 0;
+}
+
+.section-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.productDetail {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+
+.productDetail-description {
+  margin: 40px 0;
+}

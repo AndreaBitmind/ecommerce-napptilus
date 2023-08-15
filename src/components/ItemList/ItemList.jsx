@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAPI } from "../../Hooks/useAPI";
 import { ProductItem } from "../ProductItem/ProductItem";
 import "./ItemList.css";
+import { Link } from "react-router-dom";
 
 export function ItemList() {
   const { data } = useAPI("https://itx-frontend-test.onrender.com/api/product");
@@ -38,7 +39,9 @@ export function ItemList() {
         {filteredItems.map((item) => {
           return (
             <li className="item-list__productItem" key={item.id}>
-              <ProductItem item={item} />
+              <Link to={`/product/${item.id}`}>
+                <ProductItem item={item} />
+              </Link>
             </li>
           );
         })}
