@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useAPI } from "../../Hooks/useAPI";
 import "./ProductDetail.css";
+import { StorageSelector } from "../StorageSelector/StorageSelector";
 
 export function ProductDetail() {
   const { product_id } = useParams();
@@ -39,6 +40,7 @@ export function ProductDetail() {
             </div>
             <div className="productDetail-actions">
               <h2>Actions</h2>
+              <StorageSelector storageOptions={data.options.storages} />
               <button>+</button>
               <button>-</button>
             </div>
