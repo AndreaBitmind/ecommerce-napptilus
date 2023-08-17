@@ -43,3 +43,40 @@ h2 {
   padding: 10px 40px;
   background-color: white;
 }
+
+.productDetail-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.productDetail-actions__selector {
+  margin-bottom: 20px;
+}
+
+.productDetail-actions__selector select {
+  background-color: #242424;
+  padding: 5px;
+}
+
+.productDetail-actions__selector p {
+  padding: 5px;
+}
+
+.button-increase {
+  background-color: green;
+}
+
+.button-decrease {
+  background-color: red;
+}
+
+.button-quantity {
+  margin: 0 15px;
+}
+
+.button-addCart {
+  padding: 0.6em 1.6em;
+  margin-top: 40px;
+  background-color: green;
+}
