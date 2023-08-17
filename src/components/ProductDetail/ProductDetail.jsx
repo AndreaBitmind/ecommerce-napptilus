@@ -2,16 +2,30 @@ import { Link, useParams } from "react-router-dom";
 import { useAPI } from "../../Hooks/useAPI";
 import "./ProductDetail.css";
 import { StorageSelector } from "../StorageSelector/StorageSelector";
+import { ColorSelector } from "../ColorSelector/ColorSelector";
+import { useState } from "react";
 
 export function ProductDetail() {
   const { product_id } = useParams();
   const { data } = useAPI(
     `https://itx-frontend-test.onrender.com/api/product/${product_id}`
   );
+  const [quantity, setQuantity] = useState(1);
 
   if (!data) {
     return <p>Loading...</p>;
   }
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <>
       <div className="custom-link-wrapper">
@@ -38,12 +52,33 @@ export function ProductDetail() {
               <p>Dimentions: {data.dimentions}</p>
               <p>Weight: {data.weight}</p>
             </div>
-            <div className="productDetail-actions">
-              <h2>Actions</h2>
-              <StorageSelector storageOptions={data.options.storages} />
-              <button>+</button>
-              <button>-</button>
-            </div>
+            <h2>Actions</h2>
+            <section className="productDetail-actions">
+              <div className="productDetail-actions__selectors-wrapper">
+                <div className="productDetail-actions__selector">
+                  <p>Choose storage: </p>
+                  <StorageSelector storageOptions={data.options.storages} />
+                </div>
+                <div className="productDetail-actions__selector">
+                  <p>Choose color: </p>
+                  <ColorSelector colorOptions={data.options.colors} />
+                </div>
+              </div>
+              <div className="productDetails-actions__buttons-wrapper">
+                <div>
+                  <button className="button-decrease" onClick={handleDecrease}>
+                    -
+                  </button>
+                  <span className="button-quantity">{quantity}</span>
+                  <button className="button-increase" onClick={handleIncrease}>
+                    +
+                  </button>
+                </div>
+                <div>
+                  <button className="button-addCart">Add to Cart</button>
+                </div>
+              </div>
+            </section>
           </section>
         </div>
       </div>
