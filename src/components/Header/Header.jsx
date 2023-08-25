@@ -8,9 +8,13 @@ export function Header() {
     <header className="header">
       <h1>Mobile eCommerce</h1>
       <div className="cart-display">
-        <CartIcon />
-        <div>{cartItemCount}</div>
-        <button onClick={clearCart}>X</button>
+        <div className="cart-display__counter-icon">
+          <CartIcon />
+          <div className="cart-display__counter">{cartItemCount}</div>
+        </div>
+        <button className="cart-display__clear" onClick={clearCart}>
+          ❌
+        </button>
       </div>
     </header>
   );
