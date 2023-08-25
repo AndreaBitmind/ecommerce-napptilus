@@ -4,12 +4,14 @@ import "./ProductDetail.css";
 import { StorageSelector } from "../StorageSelector/StorageSelector";
 import { ColorSelector } from "../ColorSelector/ColorSelector";
 import { useState } from "react";
+import { useCart } from "../../Hooks/useCart";
 
 export function ProductDetail() {
   const { product_id } = useParams();
   const { data } = useAPI(
     `https://itx-frontend-test.onrender.com/api/product/${product_id}`
   );
+  const { cartItemCount, updateCartItemCount } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   if (!data) {
@@ -24,6 +26,10 @@ export function ProductDetail() {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
+  };
+
+  const handleAddToCart = () => {
+    updateCartItemCount(quantity + cartItemCount);
   };
 
   return (
@@ -75,7 +81,9 @@ export function ProductDetail() {
                   </button>
                 </div>
                 <div>
-                  <button className="button-addCart">Add to Cart</button>
+                  <button className="button-addCart" onClick={handleAddToCart}>
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </section>
