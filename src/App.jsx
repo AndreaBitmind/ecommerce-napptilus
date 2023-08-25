@@ -3,10 +3,11 @@ import "./App.css";
 import { Header } from "./components/Header/Header";
 import { Homepage } from "./pages/HomePage";
 import { ProductDetail } from "./components/ProductDetail/ProductDetail";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <Router>
         <Header />
         <Routes>
@@ -14,7 +15,7 @@ function App() {
           <Route path="/product/:product_id" element={<ProductDetail />} />
         </Routes>
       </Router>
-    </>
+    </CartProvider>
   );
 }
 
