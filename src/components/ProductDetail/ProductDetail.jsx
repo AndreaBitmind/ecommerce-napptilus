@@ -11,7 +11,7 @@ export function ProductDetail() {
   const { data } = useAPI(
     `https://itx-frontend-test.onrender.com/api/product/${product_id}`
   );
-  const { cartItemCount, updateCartItemCount } = useCart();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   if (!data) {
@@ -29,7 +29,8 @@ export function ProductDetail() {
   };
 
   const handleAddToCart = () => {
-    updateCartItemCount(quantity + cartItemCount);
+    addToCart(data, quantity);
+    setQuantity(1);
   };
 
   return (
