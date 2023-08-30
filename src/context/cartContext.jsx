@@ -9,19 +9,43 @@ CartProvider.propTypes = {
 };
 
 export function CartProvider({ children }) {
-  const [cartItemCount, setCartItemCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
-  const updateCartItemCount = (newCount) => {
-    setCartItemCount(newCount);
+  const updateCartItemQuantity = (itemId, changeAmount) => {
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.item.id === itemId
+          ? { ...cartItem, quantity: cartItem.quantity + changeAmount }
+          : cartItem
+      )
+    );
+  };
+
+  const addToCart = (item, quantity) => {
+    // Buscar si el ítem ya está en el carrito
+    const existingItemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.item.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      // Si el ítem ya existe, actualiza la cantidad
+      const updateCartItems = [...cartItems];
+      updateCartItems[existingItemIndex].quantity += quantity;
+
+      setCartItems(updateCartItems);
+    } else {
+      // Si el ítem no existe, agrégalo al carrito
+      setCartItems([...cartItems, { item, quantity }]);
+    }
   };
 
   const clearCart = () => {
-    setCartItemCount(0);
+    setCartItems([]);
   };
 
   return (
     <CartContext.Provider
-      value={{ cartItemCount, updateCartItemCount, clearCart }}
+      value={{ cartItems, addToCart, clearCart, updateCartItemQuantity }}
     >
       {children}
     </CartContext.Provider>

@@ -16,11 +16,12 @@ h1 {
   margin: 20px;
 }
 
-.cart-display__counter-icon {
+.cart-display {
+  cursor: pointer;
   display: flex;
   align-items: center;
   padding: 5px;
-  margin: 20px 0;
+  margin: 20px;
   border: 1px solid black;
   border-radius: 8px;
 }
