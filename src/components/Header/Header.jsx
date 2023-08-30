@@ -1,21 +1,25 @@
+import { useState } from "react";
 import { useCart } from "../../Hooks/useCart";
 import { CartIcon } from "../Icons";
 import "./Header.css";
+import CartMenu from "../CartMenu/CartMenu";
 
 export function Header() {
-  const { cartItemCount, clearCart } = useCart();
+  const { cartItems } = useCart();
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   return (
     <header className="header">
       <h1>Mobile eCommerce</h1>
-      <div className="cart-display">
-        <div className="cart-display__counter-icon">
-          <CartIcon />
-          <div className="cart-display__counter">{cartItemCount}</div>
-        </div>
-        <button className="cart-display__clear" onClick={clearCart}>
-          ❌
-        </button>
+      <div className="cart-display" onClick={toggleCart}>
+        <CartIcon />
+        <div className="cart-display__counter">{cartItems.length}</div>
       </div>
+      {isCartOpen && <CartMenu />}
     </header>
   );
 }
