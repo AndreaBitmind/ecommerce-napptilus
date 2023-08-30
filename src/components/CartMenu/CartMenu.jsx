@@ -24,14 +24,24 @@ function CartMenu() {
           <li key={cartItem.item.id} className="cart-menu__item">
             <div className="cart-menu__information">
               <img src={cartItem.item.imgUrl} alt={cartItem.item.model} />
-              <div className="cart-menu__">
+              <div className="cart-menu__specs">
                 <p>{cartItem.item.model}</p>
                 <p>Quantity: {cartItem.quantity}</p>
               </div>
             </div>
             <div className="cart-menu__buttons">
-              <button onClick={() => handleDecrease(cartItem)}>-</button>
-              <button onClick={() => handleIncrease(cartItem)}>+</button>
+              <button
+                className="cart-menu__button"
+                onClick={() => handleDecrease(cartItem)}
+              >
+                -
+              </button>
+              <button
+                className="cart-menu__button"
+                onClick={() => handleIncrease(cartItem)}
+              >
+                +
+              </button>
             </div>
           </li>
         ))}
