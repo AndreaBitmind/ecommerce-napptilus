@@ -2,10 +2,6 @@ p {
   margin: 0;
 }
 
-h2 {
-  margin: 10px;
-}
-
 .section {
   display: flex;
   justify-content: space-around;
@@ -19,6 +15,7 @@ h2 {
   padding: 20px;
   justify-content: center;
   width: 785px;
+  border-radius: 8px;
 }
 
 .productDetail {
@@ -30,16 +27,19 @@ h2 {
 
 .productDetail-description {
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .custom-link-wrapper {
   margin-top: 15px;
   display: flex;
+  justify-content: center;
 }
 
 .custom-link-button {
   font-size: 20px;
   border: 1px solid white;
+  border-radius: 8px;
   padding: 10px 40px;
   background-color: white;
 }
@@ -55,8 +55,14 @@ h2 {
 }
 
 .productDetail-actions__selector select {
-  background-color: #242424;
+  background-color: #027373;
+  border: #027373;
+  border-radius: 8px;
   padding: 5px;
+}
+
+.productDetail-actions__selector select:hover {
+  background-color: #04bfbf;
 }
 
 .productDetail-actions__selector p {
@@ -64,11 +70,21 @@ h2 {
 }
 
 .button-increase {
-  background-color: green;
+  background-color: #027373;
+  padding: 8px 15px;
+}
+
+.button-increase:hover {
+  background-color: #04bfbf;
 }
 
 .button-decrease {
-  background-color: red;
+  background-color: #02737386;
+  padding: 8px 15px;
+}
+
+.button-decrease:hover {
+  background-color: #04bfbf71;
 }
 
 .button-quantity {
@@ -78,5 +94,9 @@ h2 {
 .button-addCart {
   padding: 0.6em 1.6em;
   margin-top: 40px;
-  background-color: green;
+  background-color: #bf8173;
+}
+
+.button-addCart:hover {
+  background-color: #027373;
 }
