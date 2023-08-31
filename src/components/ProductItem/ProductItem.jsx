@@ -18,9 +18,18 @@ export function ProductItem({ item }) {
         <img src={item.imgUrl} width="100" alt={item.brand} />
       </div>
       <ul className="item-settings">
-        <li className="item-settings__setting">Brand: {item.brand}</li>
-        <li className="item-settings__setting">Model: {item.model} </li>
-        <li className="item-settings__setting">Price: {item.price} </li>
+        <li className="item-settings__setting">
+          <strong>Brand: </strong>
+          {item.brand}
+        </li>
+        <li className="item-settings__setting">
+          <strong>Model: </strong>
+          {item.model}{" "}
+        </li>
+        <li className="item-settings__setting">
+          <strong>Price: </strong>
+          {item.price}{" "}
+        </li>
       </ul>
     </div>
   );

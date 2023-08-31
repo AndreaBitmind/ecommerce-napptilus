@@ -45,21 +45,56 @@ export function ProductDetail() {
           <img src={data.imgUrl} alt={data.model} />
           <section className="productDetail">
             <div className="productDetail-description">
-              <h2>Description</h2>
-              <p>Brand: {data.brand}</p>
-              <p>Model: {data.model}</p>
-              <p>Price: {data.price}</p>
-              <p>CPU: {data.cpu}</p>
-              <p>RAM: {data.ram}</p>
-              <p>Operational System: {data.os}</p>
-              <p>Display resolution: {data.displayResolution}</p>
-              <p>Battery: {data.battery}</p>
-              <p>Primary Camera: {data.primaryCamera}</p>
-              <p>Secondary Camera: {data.secondaryCamera}</p>
-              <p>Dimentions: {data.dimentions}</p>
-              <p>Weight: {data.weight}</p>
+              <h2>Technical specifications</h2>
+              <p>
+                <strong>Brand: </strong>
+                {data.brand}
+              </p>
+              <p>
+                <strong>Model: </strong>
+                {data.model}
+              </p>
+              <p>
+                <strong>Price: </strong>
+                {data.price}
+              </p>
+              <p>
+                <strong>CPU: </strong>
+                {data.cpu}
+              </p>
+              <p>
+                <strong>RAM: </strong>
+                {data.ram}
+              </p>
+              <p>
+                <strong>Operational System: </strong>
+                {data.os}
+              </p>
+              <p>
+                <strong>Display resolution: </strong>
+                {data.displayResolution}
+              </p>
+              <p>
+                <strong>Battery: </strong>
+                {data.battery}
+              </p>
+              <p>
+                <strong>Primary Camera: </strong>
+                {data.primaryCamera}
+              </p>
+              <p>
+                <strong>Secondary Camera: </strong>
+                {data.secondaryCamera}
+              </p>
+              <p>
+                <strong>Dimentions: </strong>
+                {data.dimentions}
+              </p>
+              <p>
+                <strong>Weight: </strong>
+                {data.weight}
+              </p>
             </div>
-            <h2>Actions</h2>
             <section className="productDetail-actions">
               <div className="productDetail-actions__selectors-wrapper">
                 <div className="productDetail-actions__selector">
@@ -76,7 +111,9 @@ export function ProductDetail() {
                   <button className="button-decrease" onClick={handleDecrease}>
                     -
                   </button>
-                  <span className="button-quantity">{quantity}</span>
+                  <span className="button-quantity">
+                    <strong>{quantity}</strong>
+                  </span>
                   <button className="button-increase" onClick={handleIncrease}>
                     +
                   </button>
