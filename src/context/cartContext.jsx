@@ -11,16 +11,6 @@ CartProvider.propTypes = {
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  const updateCartItemQuantity = (itemId, changeAmount) => {
-    setCartItems((prevItems) =>
-      prevItems.map((cartItem) =>
-        cartItem.item.id === itemId
-          ? { ...cartItem, quantity: cartItem.quantity + changeAmount }
-          : cartItem
-      )
-    );
-  };
-
   const addToCart = (item, quantity) => {
     // Buscar si el ítem ya está en el carrito
     const existingItemIndex = cartItems.findIndex(
@@ -39,6 +29,16 @@ export function CartProvider({ children }) {
     }
   };
 
+  const updateCartItemQuantity = (itemId, changeAmount) => {
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.item.id === itemId
+          ? { ...cartItem, quantity: cartItem.quantity + changeAmount }
+          : cartItem
+      )
+    );
+  };
+
   const clearCart = () => {
     setCartItems([]);
   };
@@ -49,6 +49,10 @@ export function CartProvider({ children }) {
     );
   };
 
+  const accumulatedItemsCart = cartItems.reduce((totalNumber, currentItems) => {
+    return totalNumber + currentItems.quantity;
+  }, 0);
+
   return (
     <CartContext.Provider
       value={{
@@ -57,6 +61,7 @@ export function CartProvider({ children }) {
         clearCart,
         updateCartItemQuantity,
         removeFromCart,
+        accumulatedItemsCart,
       }}
     >
       {children}
