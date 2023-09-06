@@ -35,17 +35,21 @@ export function ItemList() {
         onChange={handleSearchChange}
         className="search-bar"
       />
-      <ul className="item-list">
-        {filteredItems.map((item) => {
-          return (
-            <li className="item-list__productItem" key={item.id}>
-              <Link to={`/product/${item.id}`}>
-                <ProductItem item={item} />
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      {filteredItems.length === 0 ? (
+        <p>No items found with this brand or model</p>
+      ) : (
+        <ul className="item-list">
+          {filteredItems.map((item) => {
+            return (
+              <li className="item-list__productItem" key={item.id}>
+                <Link to={`/product/${item.id}`}>
+                  <ProductItem item={item} />
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }
