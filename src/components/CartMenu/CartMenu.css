@@ -10,6 +10,8 @@
   transition: right 0.3s ease-in-out;
   box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.1);
   color: black;
+  max-height: calc(100vh - 135px);
+  overflow-y: scroll;
 }
 
 .cart-menu.open {
