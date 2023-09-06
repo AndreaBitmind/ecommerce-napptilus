@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react";
 import PropTypes from "prop-types";
+import {
+  getItemsLocalStorage,
+  saveItemsLocalStorage,
+} from "../storage/cartStorage";
 
 export const CartContext = createContext();
 
@@ -9,7 +13,7 @@ CartProvider.propTypes = {
 };
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(getItemsLocalStorage());
 
   const addToCart = (item, quantity) => {
     // Buscar si el ítem ya está en el carrito
@@ -52,6 +56,11 @@ export function CartProvider({ children }) {
   const accumulatedItemsCart = cartItems.reduce((totalNumber, currentItems) => {
     return totalNumber + currentItems.quantity;
   }, 0);
+
+  useEffect(() => {
+    // Cuando cambie el carrito, actualiza LocalStorage
+    saveItemsLocalStorage(cartItems);
+  }, [cartItems]);
 
   return (
     <CartContext.Provider
